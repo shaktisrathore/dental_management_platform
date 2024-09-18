@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Dashboard - Dental Clinic Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Welcome to Dental Clinic Management</h1>
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="card h-100 dashboard-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-clinic-medical fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title">Clinics</h3>
+                    <p class="card-text">Manage your dental clinics</p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 text-center">
+                    <a href="{% url 'clinic_list' %}" class="btn btn-outline-primary">
+                        <i class="fas fa-list me-2"></i>View Clinics
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col">
+            <div class="card h-100 dashboard-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-user-md fa-3x mb-3 text-success"></i>
+                    <h3 class="card-title">Doctors</h3>
+                    <p class="card-text">Manage your dental professionals</p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 text-center">
+                    <a href="{% url 'doctor_list' %}" class="btn btn-outline-success">
+                        <i class="fas fa-list me-2"></i>View Doctors
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col">
+            <div class="card h-100 dashboard-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x mb-3 text-info"></i>
+                    <h3 class="card-title">Patients</h3>
+                    <p class="card-text">Manage your patient records</p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 text-center">
+                    <a href="{% url 'patient_list' %}" class="btn btn-outline-info">
+                        <i class="fas fa-list me-2"></i>View Patients
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dashboard-card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .card {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .list-group-item {
+        transition: background-color 0.3s ease-in-out;
+    }
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+    }
+</style>
+{% endblock %}

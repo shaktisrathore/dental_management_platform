@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Clinics - Dental Clinic Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Clinics</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <form method="GET" class="search-form">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Search clinic" value="{{ request.GET.search }}">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{% url 'add_clinic' %}" class="btn btn-primary">
+                <i class="fas fa-plus-circle me-2"></i>Add Clinic
+            </a>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for clinic in clinics %}
+            <div class="col">
+                <div class="card h-100 clinic-card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ clinic.name }}</h3>
+                        <p class="card-text"><i class="fas fa-phone-alt me-2"></i>{{ clinic.phone_number }}</p>
+                        <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i>{{ clinic.city }}, {{ clinic.state }}</p>
+                        <p class="card-text"><i class="fas fa-user-md me-2"></i>Affiliated Doctors: {{ clinic.affiliated_doctors_count }}</p>
+                        <p class="card-text"><i class="fas fa-users me-2"></i>Affiliated Patients: {{ clinic.patient_count }}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="{% url 'clinic_detail' clinic.pk %}" class="btn btn-outline-primary">
+                            <i class="fas fa-info-circle me-2"></i>View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>No clinics found.
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .search-form {
+        max-width: 100%;
+    }
+    .clinic-card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .clinic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}

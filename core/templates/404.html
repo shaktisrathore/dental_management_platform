@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Page Not Found - Dental Clinic Management{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h1 class="display-1 text-primary mb-4">404</h1>
+                    <h2 class="mb-4">Oops! Page Not Found</h2>
+                    <p class="lead mb-4">Sorry, the page you are looking for does not exist. It might have been moved or deleted.</p>
+                    <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-home me-2"></i>Back to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

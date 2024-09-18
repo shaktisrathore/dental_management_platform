@@ -1,0 +1,99 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ clinic.name }} - Dental Clinic Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">{{ clinic.name }}</h1>
+    
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">Clinic Information</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong><i class="fas fa-map-marker-alt me-2"></i>Address:</strong> {{ clinic.address }}</p>
+                    <p><strong><i class="fas fa-city me-2"></i>City:</strong> {{ clinic.city }}</p>
+                    <p><strong><i class="fas fa-flag me-2"></i>State:</strong> {{ clinic.state }}</p>
+                    <p><strong><i class="fas fa-phone me-2"></i>Phone:</strong> {{ clinic.phone_number }}</p>
+                    <p><strong><i class="fas fa-envelope me-2"></i>Email:</strong> {{ clinic.email }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="card-title mb-0">Edit Clinic</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>Save Changes
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h3 class="card-title mb-0">Affiliated Doctors</h3>
+                </div>
+                <div class="card-body">
+                    {% if clinic.doctorclinicaffiliation_set.all %}
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                            {% for affiliation in clinic.doctorclinicaffiliation_set.all %}
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ affiliation.doctor.name }}</h4>
+                                            <p class="card-text"><strong><i class="fas fa-map-pin me-2"></i>Office:</strong> {{ affiliation.office_address }}</p>
+                                            <p class="card-text"><strong><i class="fas fa-calendar-alt me-2"></i>Schedule:</strong> {{ affiliation.working_schedule }}</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-top-0">
+                                            <a href="{% url 'doctor_detail' affiliation.doctor.pk %}" class="btn btn-outline-primary">
+                                                <i class="fas fa-user-md me-2"></i>View Doctor
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No affiliated doctors found.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+    .card:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .list-group-item {
+        transition: background-color 0.3s ease-in-out;
+    }
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+    }
+</style>
+{% endblock %}
