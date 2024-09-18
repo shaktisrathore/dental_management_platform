@@ -1,4 +1,3 @@
-```markdown
 # Dental Clinic Management System
 
 ## Overview
@@ -65,29 +64,14 @@ The platform will be accessible at [http://127.0.0.1:8000/](http://127.0.0.1:800
 - **Add Clinic**
   - **Endpoint**: `POST /api/clinics/add/`
   - **Description**: Add a new clinic.
-  ```python
-  @api_view(['POST'])
-  def api_add_clinic(request):
-      return handle_api_submission(request, ClinicSerializer)
-  ```
 
 - **Add Doctor**
   - **Endpoint**: `POST /api/doctors/add/`
   - **Description**: Add a new doctor.
-  ```python
-  @api_view(['POST'])
-  def api_add_doctor(request):
-      return handle_api_submission(request, DoctorSerializer)
-  ```
 
 - **Add Patient**
   - **Endpoint**: `POST /api/patients/add/`
   - **Description**: Add a new patient.
-  ```python
-  @api_view(['POST'])
-  def api_add_patient(request):
-      return handle_api_submission(request, PatientSerializer)
-  ```
 
 ## Configurations
 Details on configuration options for customizing the project are available in the `settings.py` file.
@@ -95,8 +79,3 @@ Details on configuration options for customizing the project are available in th
 ## Assumptions
 - The project assumes a basic understanding of Django and REST APIs.
 - You have the necessary permissions and access to set up a Django project on your local machine.
-
-For further assistance, feel free to open an issue or contribute to the project!
-```
-
-You can replace `https://github.com/yourusername/yourproject.git` with the actual URL of your repository. If you have any more details or specific instructions, you can add them under the relevant sections.
