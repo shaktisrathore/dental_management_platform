@@ -56,7 +56,33 @@ DJANGO_SECRET_KEY=your_secret_key_here
 DJANGO_DEBUG=True
 DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
 CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+DB_NAME=your_database_name
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+DB_HOST=localhost
+DB_PORT=5432
 ```
+
+Replace `your_secret_key_here` with a secure random string, and update the `DATABASE_URL` with your PostgreSQL credentials.
+
+### 5. Database Setup (PostgreSQL)
+By default, the project uses SQLite. To use PostgreSQL:
+
+1. Install PostgreSQL on your system if not already installed.
+2. Create a new PostgreSQL database for the project.
+3. Update the `DATABASE_URL` in your `.env` file with your PostgreSQL credentials.
+4. Install the psycopg2 library if not already installed:
+   ```bash
+   pip install psycopg2-binary
+   ```
+5. Update the `DATABASES` configuration in `dental_management_platform/settings.py`:
+   ```python
+   import dj_database_url
+
+   DATABASES = {
+       'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+   }
+   ```
 
 Replace `your_secret_key_here` with a secure random string. You can generate one using Python:
 ```bash
