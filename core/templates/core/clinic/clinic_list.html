@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="mb-4">Clinics</h1>
+    <h1><i class="fas fa-clinic-medical me-2"></i>Clinic List</h1>
 
     <div class="row mb-4">
         <div class="col-md-8">
@@ -29,11 +29,11 @@
             <div class="col">
                 <div class="card h-100 clinic-card">
                     <div class="card-body">
-                        <h3 class="card-title">{{ clinic.name }}</h3>
-                        <p class="card-text"><i class="fas fa-phone-alt me-2"></i>{{ clinic.phone_number }}</p>
-                        <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i>{{ clinic.city }}, {{ clinic.state }}</p>
-                        <p class="card-text"><i class="fas fa-user-md me-2"></i>Affiliated Doctors: {{ clinic.affiliated_doctors_count }}</p>
-                        <p class="card-text"><i class="fas fa-users me-2"></i>Affiliated Patients: {{ clinic.patient_count }}</p>
+                        <h3 class="card-title"><i class="fas fa-hospital me-2 text-info"></i>{{ clinic.name }}</h3>
+                        <p class="card-text"><i class="fas fa-phone me-2 text-info"></i>{{ clinic.phone_number }}</p>
+                        <p class="card-text"><i class="fas fa-map-marker-alt me-2 text-info"></i>{{ clinic.city }}, {{ clinic.state }}</p>
+                        <p class="card-text"><i class="fas fa-user-md me-2 text-info"></i>Affiliated Doctors: {{ clinic.affiliated_doctors_count }}</p>
+                        <p class="card-text"><i class="fas fa-users me-2 text-info"></i>Affiliated Patients: {{ clinic.patient_count }}</p>
                     </div>
                     <div class="card-footer bg-transparent border-top-0">
                         <a href="{% url 'clinic_detail' clinic.pk %}" class="btn btn-outline-primary">

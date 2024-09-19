@@ -133,6 +133,6 @@ class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='appointments')
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     clinic = models.ForeignKey(Clinic, on_delete=models.CASCADE)
-    date_time = models.DateTimeField()
+    date_time = models.DateField()
     procedure = models.CharField(max_length=2, choices=PROCEDURES)
     date_booked = models.DateTimeField(auto_now_add=True)

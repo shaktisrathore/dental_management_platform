@@ -34,7 +34,6 @@ def clinic_list(request):
     query = request.GET.get('search', '')
     clinics = Clinic.objects.filter(name__icontains=query)
 
-    # For each clinic, calculate the affiliated patient count based on appointments
     for clinic in clinics:
         clinic.patient_count = clinic.affiliated_patients_count()
 
@@ -65,7 +64,6 @@ def doctor_list(request):
     if specialty_filter:
         doctors = doctors.filter(specialties=specialty_filter)
 
-    # For each doctor, calculate the affiliated patient count based on appointments
     for doctor in doctors:
         doctor.patient_count = doctor.affiliated_patients_count()
 
