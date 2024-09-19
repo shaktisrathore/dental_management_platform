@@ -19,9 +19,10 @@ This video provides an overview of the key features and functionalities of our D
 3. [Setup Instructions](#setup-instructions)
 4. [Running the Platform](#running-the-platform)
 5. [Using Key Features and REST APIs](#using-key-features-and-rest-apis)
-6. [Configurations](#configurations)
-7. [Environment Variables](#environment-variables)
-8. [Troubleshooting](#troubleshooting)
+6. [Unit Tests](#unit-tests)
+7. [Configurations](#configurations)
+8. [Environment Variables](#environment-variables)
+9. [Troubleshooting](#troubleshooting)
 
 ## Features
 - **Clinic Management**: Add, edit, and view clinic information.
@@ -126,6 +127,29 @@ The platform will be accessible at [http://127.0.0.1:8000/](http://127.0.0.1:800
   - **Description**: Get clinic information by ID.
 
 For detailed API documentation, refer to the Django REST Framework browsable API interface when the server is running.
+
+## Unit Tests
+
+This project includes a comprehensive suite of unit tests to ensure the reliability and correctness of its components. The tests cover various aspects of the system, including models, views, and API endpoints.
+
+### Running the Tests
+
+To run the unit tests, use the following command:
+
+```bash
+python manage.py test
+```
+
+This will discover and run all the tests in the project.
+
+### Test Coverage
+
+The tests cover critical functionalities such as:
+
+- Model creation and validation
+- API endpoint responses
+- Form submissions
+- User authentication and authorization
 
 ## Configurations
 Key configuration options are available in `dental_management_platform/settings.py`, including database settings, installed apps, and middleware.
