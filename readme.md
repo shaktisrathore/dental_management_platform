@@ -70,24 +70,7 @@ By default, the project uses SQLite. To use PostgreSQL:
 
 1. Install PostgreSQL on your system if not already installed.
 2. Create a new PostgreSQL database for the project.
-3. Update the `DATABASE_URL` in your `.env` file with your PostgreSQL credentials.
-4. Install the psycopg2 library if not already installed:
-   ```bash
-   pip install psycopg2-binary
-   ```
-5. Update the `DATABASES` configuration in `dental_management_platform/settings.py`:
-   ```python
-   import dj_database_url
-
-   DATABASES = {
-       'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
-   }
-   ```
-
-Replace `your_secret_key_here` with a secure random string. You can generate one using Python:
-```bash
-python -c "import secrets; print(secrets.token_urlsafe(50))"
-```
+3. Update the DATABASE CREDEBTIALS in your `.env` file with your PostgreSQL credentials.
 
 ### 5. Apply Migrations
 Set up the database schema by applying migrations.
