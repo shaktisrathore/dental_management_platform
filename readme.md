@@ -111,6 +111,10 @@ The platform will be accessible at [http://127.0.0.1:8000/](http://127.0.0.1:800
   - **Endpoint**: `POST /api/patients/add/`
   - **Description**: Add a new patient.
 
+- **Get Clinic Info By ID**
+  - **Endpoint**: `GET /api/clinics/get/<int:pk>/`
+  - **Description**: Get clinic information by ID.
+
 For detailed API documentation, refer to the Django REST Framework browsable API interface when the server is running.
 
 ## Configurations
@@ -122,10 +126,13 @@ The `.env` file contains important configuration settings:
 - `DJANGO_DEBUG`: Set to 'True' for development, 'False' for production.
 - `DJANGO_ALLOWED_HOSTS`: Comma-separated list of allowed hosts.
 - `CORS_ALLOWED_ORIGINS`: Allowed origins for CORS (in development mode, all origins are allowed).
+- `DB_NAME`: Name of the database.
+- `DB_USER`: Database user.
+- `DB_PASSWORD`: Database password.
+- `DB_HOST`: Database host.
+- `DB_PORT`: Database port. 
 
 ## Troubleshooting
 - **Database Issues**: Ensure migrations are applied. The project uses SQLite by default.
 - **Static Files Not Loading**: Run `python manage.py collectstatic`.
 - **API Access Issues**: Check CORS settings in `settings.py`.
-
-For more help, please open an issue on the GitHub repository.
