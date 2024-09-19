@@ -3,6 +3,16 @@
 ## Overview
 This project is a comprehensive Dental Clinic Management System developed using Django and Django REST Framework. It provides functionalities to manage clinics, doctors, patients, and appointments through both a web interface and RESTful APIs.
 
+## Demo
+
+Check out our YouTube demo to see the Dental Clinic Management System in action:
+
+[![Dental Clinic Management System Demo](https://img.youtube.com/vi/dxmbzaPectU/0.jpg)](https://youtu.be/dxmbzaPectU?si=eBxUO0hICSF1Yp6k)
+
+[Watch the demo video](https://youtu.be/dxmbzaPectU?si=eBxUO0hICSF1Yp6k)
+
+This video provides an overview of the key features and functionalities of our Dental Clinic Management System.
+
 ## Table of Contents
 1. [Features](#features)
 2. [Prerequisites](#prerequisites)
@@ -133,6 +143,6 @@ The `.env` file contains important configuration settings:
 - `DB_PORT`: Database port. 
 
 ## Troubleshooting
-- **Database Issues**: Ensure migrations are applied. The project uses SQLite by default.
+- **Database Issues**: Ensure migrations are applied.
 - **Static Files Not Loading**: Run `python manage.py collectstatic`.
 - **API Access Issues**: Check CORS settings in `settings.py`.
